@@ -15,47 +15,46 @@
   </div>
 
   <!-- QUIZ SECTION -->
-  <form>
+
+  <section class="quizArea">
     <!-- ask question -->
-    <div>
-      <h2 class="questions">This is a question</h2>
-    </div>
-    <!-- multiple choice answers -->
-    <div>
-      <p>
-        <span class="radio-wrapper">
-            <input type="radio" name="answer" value="a" checked />
-            <label for="radio">A. This is option a.</label>
-        </span>
-      </p>
-      <p>
-        <span class="radio-wrapper">
-            <input type="radio" name="answer" value="b" checked />
-            <label for="radio">B. This is option b.</label>
-        </span>
-      </p>
-      <p>
-        <span class="radio-wrapper">
-            <input type="radio" name="answer" value="c" checked />
-            <label for="radio">C. This is option c.</label>
-        </span>
-      </p>
-      <p>
-        <span class="radio-wrapper">
-            <input type="radio" name="answer" value="d" checked />
-            <label for="radio">D. This is option d.</label>
-        </span>
-      </p>
+    <form action=" ">
+    <h2 id="questions">Question will display here</h2>
+    <p>
+      <!-- <span class="radio-wrapper"> -->
+          <input type="radio" id="ansA" name="answer" value="a" checked />
+          <label for="radio">A. This is option a.</label>
+      <!-- </span> -->
+  
+    </p>
+    <p>
+      <!-- <span class="radio-wrapper"> -->
+          <input type="radio" id="ansB" name="answer" value="b" checked />
+          <label for="radio">B. This is option b.</label>
+      <!-- </span> -->
+    </p>
+    <p>
+      <!-- <span class="radio-wrapper"> -->
+          <input type="radio" id="ansC" name="answer" value="c" checked />
+          <label for="radio">C. This is option c.</label>
+      <!-- </span> -->
+    </p>
+    <p>
+      <!-- <span class="radio-wrapper"> -->
+          <input type="radio" id="ansD" name="answer" value="d" checked />
+          <label for="radio">D. This is option d.</label>
+      <!-- </span> -->
+    </p>
 
-    <button type="submit" class="submit-answer">Submit</button>
+    <!-- SUBMIT AMSWER -->
+    <!-- <button type="submit" id="submit-answer" class="submit-answer">Submit</button> -->
 
-    
-    </div>
+    </form>
 
 
-    <!-- CORRECT/INCORRECT NOTIFICATION-->
-    <div>
-      <p class="answer"></p>
+    <!-- CORECT/INCORRECT notification-->
+    <div id="answerConfirm">
+      <p class="answer">you guessed right/wrong will display here</p>
     </div>
 
       
@@ -64,8 +63,7 @@
       <button type="button" id="start-game" class="start-game">Start</button> 
     </div>
 
-  </form>
-
+  </section>
 
    
   <!-- SCORING AND TIMER SECTION -->
@@ -74,6 +72,8 @@
       <h3>High Score</h3>
       <h4 id="high-score"></h4>
     </div>
+
+
     <div class="timer">
       <h3>Time Remaining</h3>
       <h4 id="countdown"></h4>

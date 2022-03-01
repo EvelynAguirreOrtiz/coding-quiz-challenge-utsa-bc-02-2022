@@ -16,32 +16,29 @@
 }
  
 header {
-    /* background: var(--secondary); */
     padding: 5px;
-    border-bottom: 5px solid; 
-    /* text-align: center; */
+    border-bottom: 2px solid; 
   }
 
 header h1 {
     text-align: center;
-    font-size: 40px;
+    font-size: 30px;
     font-weight: lighter;
 }
 
 
 /* STYLE QUIZ SECTION */
-form {
+.quizArea {
   display: block;
   margin: auto;
   flex-wrap: wrap;
-  /* text-align: left; */
-  padding: 30px 40px;
+  padding: 20px 40px;
   border: 1px black solid;
   max-width: 80%;
   align-content: center;
 }
 
-form p {
+.quizArea p {
   text-align: left;
 
 }
@@ -55,7 +52,7 @@ form p {
     font-size: 20px;
     border-radius: 10px;
     position: relative;
-    top: 3px;
+    top: 2px;
     
   }
 
@@ -91,8 +88,12 @@ form p {
   padding: 20px;
   flex-direction: row;
   display: block;
+  font-size: smaller;
 }
 
+.high-score h4, .timer h4 {
+  font-size: 20px;
+}
 
 @media screen and (max-width: 980px) {
   form .form-group {
