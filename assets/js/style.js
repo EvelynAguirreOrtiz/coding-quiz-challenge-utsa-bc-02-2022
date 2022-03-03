@@ -1,4 +1,4 @@
-// start button and timer
+// start timer and display questions
 var startQuizEl = document.getElementById('start-game');
 var countdownEl = document.getElementById('countdown');
 // quiz area
@@ -13,12 +13,14 @@ var answerDEl = document.getElementById('ansD');
 // correct answers
 //var 
 
+// submit answers
+var nextQuestionEl = document.getElementById('submit-answer');     
+
+
 // answer response
 var answerRespondEl = document.getElementById('answer-respond');
-
 // score
 var scoreEl = document.getElementById('high-score');
-
 // question array
 var questionArr =[
    {  questionEl : "This is the first question", 
@@ -73,15 +75,6 @@ function countdownTimer() {
 };   
 
 
-
-// !!!! GAME ENDS IF COUNTDOWNTIMER = 0
-
-
-// QUESTIONS SECTION 
-
-
-
-
 // run quiz
 // var questionLoop = function() {
    // for (let i = 0; i < questionArr.length; i++) {
@@ -112,9 +105,9 @@ var questionArr = [questionEl.innerHTML = "<h2>" + currentQuestion.questionEl + 
                      answerDEl.innerHTML = "<label>" + currentQuestion.answerDEl + "</label>" ];
 
                      
-// .addEventListener('click', function() {
-   // console.log('click');
-// };
+nextQuestionEl.addEventListener('click', function() {
+ console.log('click')
+});
 // 
 
 
@@ -122,14 +115,14 @@ var questionArr = [questionEl.innerHTML = "<h2>" + currentQuestion.questionEl + 
 
 //if  <clicked answer>===answerArray[i];
 // answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
-var score = 0;
-score += 10;
+// var score = 0;
+// score += 10;
 // quizLaunch();
 
 
 
 //  IF ANSWER IS WRONG, DEDUCT TIME
-// answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "<br>" + "Click 'ENTER' to continue" + "</p>";
+//  answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "<br>" + "Click 'ENTER' to continue" + "</p>";
 // deduct time
 // timeLeft = timeLeft - 5
 // quizLaunch();

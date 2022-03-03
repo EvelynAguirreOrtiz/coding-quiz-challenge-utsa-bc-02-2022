@@ -56,12 +56,10 @@ header h3 {
   /* position: relative; */
   align-items: center;
   text-align: center;
-  
 }
 
 
 /* STYLE QUIZ SECTION */
-
 .hidden {
   display: none;
 }
@@ -86,9 +84,6 @@ header h3 {
   text-align: left;
 
 }
-
-
-/* STYLE Q & A SECTION */
 
 .response {
   text-align: center;
