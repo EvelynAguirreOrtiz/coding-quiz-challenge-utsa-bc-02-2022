@@ -40,7 +40,6 @@ var questionArr =[
 var answerArray = [answerAEl, answerDEl];
 
 
-
 // CLICK TO START GAME
 var timeLeft = "";
 startQuizEl.addEventListener('click', function() {
@@ -48,8 +47,7 @@ startQuizEl.addEventListener('click', function() {
 // !!!! quizLaunch();
    // timeLeft === 60; (don't need this?)
    console.log("Start game");
-
-   // hide start button
+   // hide start button after game starts
    startQuizEl.setAttribute("class", "hidden");
    // unhide quiz 
    quizAreaEl.removeAttribute('class', 'hidden');
@@ -64,13 +62,11 @@ function countdownTimer() {
 
       if (timeLeft === 0) { 
       clearInterval(timeInterval); 
+      // hide remaining questions
       quizAreaEl.setAttribute('class', 'hidden');
-      countdownEl.textContent = "Times Up!";  
       answerRespondEl.innerHTML = "<p>" + "You ran out of time!" + "<br>" + "That's OK, keep practicing and try again later! " + "</p>";
-
-
-      
-      // !!! STOP QUESTION FOR LOOP
+      countdownEl.textContent = "Times Up!";  
+      // !!! STOP QUESTION-FOR LOOP
 
       } 
    }, 1000);
@@ -79,8 +75,6 @@ function countdownTimer() {
 
 
 // !!!! GAME ENDS IF COUNTDOWNTIMER = 0
-
-// !!! START BUTTON DISAPPEARS AFTER GAME STARTS
 
 
 // QUESTIONS SECTION 
@@ -123,29 +117,27 @@ var questionArr = [questionEl.innerHTML = "<h2>" + currentQuestion.questionEl + 
 // };
 // 
 
+
+// ANSWER IS RIGHT
+
+//if  <clicked answer>===answerArray[i];
+// answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
+var score = 0;
+score += 10;
+// quizLaunch();
+
+
+
 //  IF ANSWER IS WRONG, DEDUCT TIME
-//  timeLeft = timeLeft - 5
-//  "That is incorrect"
+// answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "<br>" + "Click 'ENTER' to continue" + "</p>";
+// deduct time
+// timeLeft = timeLeft - 5
+// quizLaunch();
 
 
+//  !!!! GAME END IF QUESTIONS === 0
 
-
-// IF ANSWER IS RIGHT
-   
-    var score = 0;
-    score += 10;
-
-//  "You are correct!"
-
-
-
-
-//  !!!! GAME END IF QUESTIONS = 0
-
-
-
-
-
-
+// if all questions are answered
+// answerRespondEl.innerHTML = "<p>" + "Congratulations, you finished the quiz!" + "<br>" + "Enter your initials in the box to save your score!" + "</p>";
 
 // ENTER INITIALS AT END OF GAME -- localStorage
