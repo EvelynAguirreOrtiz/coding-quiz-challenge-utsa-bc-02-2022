@@ -11,60 +11,62 @@
   <div>
     <header>
       <h1>CODING QUIZ</h1>
+      <h2>Challenge yourself with this short coding quiz</h2>
+      <h3>Press START to begin</h3>
     </header>
   </div>
 
   <!-- QUIZ SECTION -->
 
-  <section class="quizArea">
-    <!-- ask question -->
-    <form action=" ">
-    <h2 id="questions">Question will display here</h2>
-    <p>
-      <!-- <span class="radio-wrapper"> -->
-          <input type="radio" id="ansA" name="answer" value="a" checked />
-          <label for="radio">A. This is option a.</label>
-      <!-- </span> -->
-  
-    </p>
-    <p>
-      <!-- <span class="radio-wrapper"> -->
-          <input type="radio" id="ansB" name="answer" value="b" checked />
-          <label for="radio">B. This is option b.</label>
-      <!-- </span> -->
-    </p>
-    <p>
-      <!-- <span class="radio-wrapper"> -->
-          <input type="radio" id="ansC" name="answer" value="c" checked />
-          <label for="radio">C. This is option c.</label>
-      <!-- </span> -->
-    </p>
-    <p>
-      <!-- <span class="radio-wrapper"> -->
-          <input type="radio" id="ansD" name="answer" value="d" checked />
-          <label for="radio">D. This is option d.</label>
-      <!-- </span> -->
-    </p>
+  <section class="quiz-area">
+
+    <!--  start button -->
+    <div class="start-btn">
+      <button type="button" id="start-game" class="start-game">Start</button> 
+    </div>
+    
+
+    <!-- question area -->
+    <form action=" " class="hidden" id="quiz-area">
+
+
+      <!-- answwer area -->
+      <h2 id="questions"></h2>
+      <p>
+        <!-- <span class="radio-wrapper"> -->
+            <input type="radio" id="answer" name="answer" value="a" checked />
+            <label for="radio" id="ansA"></label>
+        <!-- </span> -->
+        
+      </p>
+      <p>
+        <!-- <span class="radio-wrapper"> -->
+            <input type="radio" id="answer" name="answer" value="b" checked />
+            <label for="radio" id="ansB"></label>
+        <!-- </span> -->
+      </p>
+      <p>
+        <!-- <span class="radio-wrapper"> -->
+            <input type="radio" id="answer" name="answer" value="c" checked />
+            <label for="radio" id="ansC"></label>
+        <!-- </span> -->
+      </p>
+      <p>
+        <!-- <span class="radio-wrapper"> -->
+            <input type="radio" id="answer" name="answer" value="d" checked />
+            <label for="radio" id="ansD"></label>
+        <!-- </span> -->
+      </p>
 
     <!-- SUBMIT AMSWER -->
     <!-- <button type="submit" id="submit-answer" class="submit-answer">Submit</button> -->
-
     </form>
 
-
     <!-- CORECT/INCORRECT notification-->
-    <div id="answerConfirm">
-      <p class="answer">you guessed right/wrong will display here</p>
+    <div id="answer-respond" class="response">
+      <p class="response"></p>
     </div>
-
       
-<!--  start button -->
-    <div>
-      <button type="button" id="start-game" class="start-game">Start</button> 
-    </div>
-
-  </section>
-
    
   <!-- SCORING AND TIMER SECTION -->
   <section class="scoreboard">
@@ -72,7 +74,6 @@
       <h3>High Score</h3>
       <h4 id="high-score"></h4>
     </div>
-
 
     <div class="timer">
       <h3>Time Remaining</h3>

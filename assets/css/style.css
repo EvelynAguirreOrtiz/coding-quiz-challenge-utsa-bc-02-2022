@@ -3,32 +3,70 @@
   }
 
 
- body {
+body {
   /* background: ; */
   /* color: ; */
   margin: 0;
   padding: 0;
   display: flex;
-  height: 90vh;
+  height: 100vh;
   width: auto;
+  align-items: center;
   flex-direction: column;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
  
 header {
-    padding: 5px;
-    border-bottom: 2px solid; 
+  padding: 3px;
+  border-bottom: 2px solid; 
+  text-align: center;
+  font-weight: lighter;
+
   }
 
 header h1 {
-    text-align: center;
-    font-size: 30px;
-    font-weight: lighter;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+header h2 {
+  font-size: 20px;
+  font-weight: lighter; 
+  margin: 10px;
+}
+
+header h3 {
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.start-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center ;
+}
+
+.start-game {
+  outline: none;
+  border: none;
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 20px;
+  border-radius: 10px;
+  /* position: relative; */
+  align-items: center;
+  text-align: center;
+  
 }
 
 
 /* STYLE QUIZ SECTION */
-.quizArea {
+
+.hidden {
+  display: none;
+}
+
+.quiz-area {
   display: block;
   margin: auto;
   flex-wrap: wrap;
@@ -36,31 +74,32 @@ header h1 {
   border: 1px black solid;
   max-width: 80%;
   align-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.quizArea p {
+.quiz-area h2 {
+  font-size: 20px;
+}
+
+.quiz-area p {
   text-align: left;
 
 }
 
 
-.start-game {
-    outline: none;
-    border: none;
-    display: inline-block;
-    padding: 10px 15px;
-    font-size: 20px;
-    border-radius: 10px;
-    position: relative;
-    top: 2px;
-    
-  }
-
-
 /* STYLE Q & A SECTION */
 
+.response {
+  text-align: center;
+  padding: 10px
 
-
+}
+.response p {
+  text-align: center;
+  font-size: 20px;
+  font-weight: lighter;
+}
 
   /* STYLE HIGH SCORE AND TIMER  */ 
 .scoreboard {
@@ -92,7 +131,8 @@ header h1 {
 }
 
 .high-score h4, .timer h4 {
-  font-size: 20px;
+  font-size: 40px;
+  font-weight: lighter;
 }
 
 @media screen and (max-width: 980px) {
