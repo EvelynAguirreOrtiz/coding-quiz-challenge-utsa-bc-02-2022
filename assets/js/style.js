@@ -10,8 +10,9 @@ var answerAEl = document.getElementById('ansA');
 var answerBEl = document.getElementById('ansB');
 var answerCEl = document.getElementById('ansC');
 var answerDEl = document.getElementById('ansD');
-// correct answers
-//var 
+// clicked answers
+// !!! NEED TO FIND CORREcT ANSWERS
+//var radioClickEl = document.getElementById('answer').value;
 
 // submit answers
 var nextQuestionEl = document.getElementById('submit-answer');     
@@ -22,13 +23,15 @@ var answerRespondEl = document.getElementById('answer-respond');
 // score
 var scoreEl = document.getElementById('high-score');
 // question array
+
+
 var questionArr =[
    {  questionEl : "This is the first question", 
       answerAEl : "A. This is answer A", 
       answerBEl : "B. This is answer B", 
       answerCEl : "C. This is answer C", 
       answerDEl : "D. This is answer D"
-      
+      // correctEl : answerAEl
    },
    {  questionEl : "This is the second question", 
       answerAEl : "A. This is answer A", 
@@ -90,36 +93,54 @@ function countdownTimer() {
       // questionEl.innerHTML = "<h2>" + currentQuestion.questionEl + "</h2>";
       // answerAEl.innerHTML = "<label>" + currentQuestion.answerAEl + "</label>";
       // answerBEl.innerHTML = "<label>" + currentQuestion.answerBEl + "</label>";
-      // answerCEl.innerHTML = "<label>" + currentQuestion.answerCEl + "</label>";
+      // answerCEl.innerHTML = "<label>" + currentQuestion.answerCEl + "</label>";  
       // answerDEl.innerHTML = "<label>" + currentQuestion.answerDEl + "</label>";
 // };
 // quizLaunch();
+      
+
+// !!!!! SCROLL THRU QUESTIONS
+      var i = 0
+      var currentQuestion = questionArr[i];
+      var currentQuestionText
+      = [questionEl.innerHTML = "<h2>" + currentQuestion.questionEl + "</h2>",
+         answerAEl.innerHTML = "<label>" + currentQuestion.answerAEl + "</label>",
+         answerBEl.innerHTML = "<label>" + currentQuestion.answerBEl + "</label>",
+         answerCEl.innerHTML = "<label>" + currentQuestion.answerCEl + "</label>",
+         answerDEl.innerHTML = "<label>" + currentQuestion.answerDEl + "</label>" ];
+ 
+
+      //  choose answer and click submit button         
+      // nextQuestionEl.addEventListener('click', function() {
 
 
-var i = 0
-var currentQuestion = questionArr[i];
-var questionArr = [questionEl.innerHTML = "<h2>" + currentQuestion.questionEl + "</h2>",
-                     answerAEl.innerHTML = "<label>" + currentQuestion.answerAEl + "</label>",
-                     answerBEl.innerHTML = "<label>" + currentQuestion.answerBEl + "</label>",
-                     answerCEl.innerHTML = "<label>" + currentQuestion.answerCEl + "</label>",
-                     answerDEl.innerHTML = "<label>" + currentQuestion.answerDEl + "</label>" ];
+      // if (radioClickEl === answerArray[i]) {
+         // answer is corrrect
+         // console.log("OK");
+         // answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
+         // score = score + 10;
 
-                     
-nextQuestionEl.addEventListener('click', function() {
- console.log('click')
-});
-// 
+         // } else {console.log("no");
+         // answer is incorrect
+      // 
+         // answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "<br>" + "Click 'ENTER' to continue" + "</p>";
+         // timeLeft = timeLeft - 5
+         // }
+         // go to next question
+         // nextQuestionEl.addEventListener('click', function() {
+            // i++
+         // });
 
 
+
+    //  });
+   
 // ANSWER IS RIGHT
 
-//if  <clicked answer>===answerArray[i];
 // answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
 // var score = 0;
 // score += 10;
 // quizLaunch();
-
-
 
 //  IF ANSWER IS WRONG, DEDUCT TIME
 //  answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "<br>" + "Click 'ENTER' to continue" + "</p>";
@@ -134,3 +155,4 @@ nextQuestionEl.addEventListener('click', function() {
 // answerRespondEl.innerHTML = "<p>" + "Congratulations, you finished the quiz!" + "<br>" + "Enter your initials in the box to save your score!" + "</p>";
 
 // ENTER INITIALS AT END OF GAME -- localStorage
+// localStorage.setItem('score', score)
