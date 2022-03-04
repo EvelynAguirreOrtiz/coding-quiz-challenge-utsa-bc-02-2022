@@ -12,7 +12,7 @@ var answerCEl = document.getElementById('ansC');
 var answerDEl = document.getElementById('ansD');
 // clicked answers
 // !!! NEED TO FIND CORREcT ANSWERS
-//var radioClickEl = document.getElementById('answer').value;
+var radioClickEl = document.getElementsByClassName('answer').value;
 
 // submit answers
 var nextQuestionEl = document.getElementById('submit-answer');     
@@ -26,18 +26,18 @@ var scoreEl = document.getElementById('high-score');
 
 
 var questionArr =[
-   {  questionEl : "This is the first question", 
-      answerAEl : "A. This is answer A", 
-      answerBEl : "B. This is answer B", 
-      answerCEl : "C. This is answer C", 
-      answerDEl : "D. This is answer D"
-      // correctEl : answerAEl
+   {  questionEl : "What does 'HTML' stand for?", 
+      answerAEl : "A. Hyper Text Markup Language", 
+      answerBEl : "B. Hyper Text Markdown Language", 
+      answerCEl : "C. Heavy Tablet Marking Language", 
+      answerDEl : "D. Hyper Text Marking Label",
+      correctAnswer : "answerAEl"
    },
-   {  questionEl : "This is the second question", 
-      answerAEl : "A. This is answer A", 
-      answerBEl : "B. This is answer B", 
-      answerCEl : "C. This is answer C", 
-      answerDEl : "D. This is answer D"
+   {  questionEl : "Which of the following is not a data type?", 
+      answerAEl : "A. Booleans", 
+      answerBEl : "B. Strings", 
+      answerCEl : "C. Numbers", 
+      answerDEl : "D. Alphabets"
       
    },
 ];
@@ -47,6 +47,7 @@ var answerArray = [answerAEl, answerDEl];
 
 // CLICK TO START GAME
 var timeLeft = "";
+var score = 0
 startQuizEl.addEventListener('click', function() {
    countdownTimer();  
 // !!!! quizLaunch();
@@ -56,6 +57,8 @@ startQuizEl.addEventListener('click', function() {
    startQuizEl.setAttribute("class", "hidden");
    // unhide quiz 
    quizAreaEl.removeAttribute('class', 'hidden');
+   // ser score to 0
+   scoreEl.textContent = score;
 });
 
 // COUNTDOWN TIMER
@@ -76,6 +79,7 @@ function countdownTimer() {
       } 
    }, 1000);
 };   
+
 
 
 // run quiz
@@ -99,6 +103,7 @@ function countdownTimer() {
 // quizLaunch();
       
 
+
 // !!!!! SCROLL THRU QUESTIONS
       var i = 0
       var currentQuestion = questionArr[i];
@@ -111,10 +116,25 @@ function countdownTimer() {
  
 
       //  choose answer and click submit button         
-      // nextQuestionEl.addEventListener('click', function() {
+         nextQuestionEl.addEventListener('click', function() {
+            console.log ("click")
+         //   var c = 0;
+         //   var q1 = document.quiz.answer.value
+
+            if (radioClickEl === answerArray[i]) {
+         console.log("OK");
+         answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
+         score = score + 10;
 
 
-      // if (radioClickEl === answerArray[i]) {
+            };
+
+         });
+      
+      
+      
+
+      // if (radioClickEl === answerArray.correctAnswer[i]) {
          // answer is corrrect
          // console.log("OK");
          // answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";

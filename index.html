@@ -23,7 +23,7 @@
       <button type="button" id="start-game" class="start-game">Start</button> 
     </div>
     <!-- question area -->
-    <form action=" " class="hidden" id="quiz-area">
+    <form action="" class="hidden" id="quiz-area" name="quiz">
       <!-- question -->
       <h2 id="questions"></h2>
       <!-- answers -->
@@ -33,26 +33,26 @@
             <label for="radio" id="ansA"></label>
         <!-- </span> -->
       </p>
-      <p>
+      <p class="answer">
         <!-- <span class="radio-wrapper"> -->
             <input type="radio" id="answer" name="answer" value="b" checked />
             <label for="radio" id="ansB"></label>
         <!-- </span> -->
       </p>
-      <p>
+      <p class="answer">
         <!-- <span class="radio-wrapper"> -->
             <input type="radio" id="answer" name="answer" value="c" checked />
             <label for="radio" id="ansC"></label>
         <!-- </span> -->
       </p>
-      <p>
+      <p class="answer">
         <!-- <span class="radio-wrapper"> -->
             <input type="radio" id="answer" name="answer" value="d" checked />
             <label for="radio" id="ansD"></label>
         <!-- </span> -->
       </p>
 
-    <!-- SUBMIT ASWER -->
+    <!-- SUBMIT ANSWER -->
     <button type="submit" id="submit-answer" class="submit-answer">Enter</button>
     </form>
 
@@ -65,7 +65,7 @@
   <!-- SCORING AND TIMER SECTION -->
   <section class="scoreboard">
     <div class="high-score">
-      <h3>High Score</h3>
+      <h3>Your Score</h3>
       <h4 id="high-score"></h4>
     </div>
 
