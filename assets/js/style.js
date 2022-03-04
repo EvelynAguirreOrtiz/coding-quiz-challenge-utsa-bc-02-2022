@@ -27,10 +27,10 @@ var scoreEl = document.getElementById('high-score');
 
 var questionArr =[
    {  questionEl : "What does 'HTML' stand for?", 
-      answerAEl : "A. Hyper Text Markup Language", 
-      answerBEl : "B. Hyper Text Markdown Language", 
-      answerCEl : "C. Heavy Tablet Marking Language", 
-      answerDEl : "D. Hyper Text Marking Label",
+      answerAEl : "A. HyperText Markup Language", 
+      answerBEl : "B. HyperText Markdown Language", 
+      answerCEl : "C. HeavyTablet Marking Language", 
+      answerDEl : "D. HyperText Marking Label",
       correctAnswer : "answerAEl"
    },
    {  questionEl : "Which of the following is not a data type?", 
@@ -40,6 +40,22 @@ var questionArr =[
       answerDEl : "D. Alphabets"
       
    },
+   {  questionEl : "Which of these is an example of camel case?", 
+      answerAEl : "A. This_is_Camel_case", 
+      answerBEl : "B. thisIsCamelCase", 
+      answerCEl : "C. ThisIsCamelCase", 
+      answerDEl : "D. This_Is_Camel_Case"
+
+   },
+   {  questionEl : "What is the order of a box model, starting from the innermost element?", 
+      answerAEl : "A. Margin, Border, Padding, Content", 
+      answerBEl : "B. Content, Margin, Padding, Border", 
+      answerCEl : "C. Content, Padding, Border, Margin", 
+      answerDEl : "D. Content, Border, Margin, Padding"
+
+   },
+
+
 ];
 // answer array
 var answerArray = [answerAEl, answerDEl];
@@ -74,8 +90,6 @@ function countdownTimer() {
       quizAreaEl.setAttribute('class', 'hidden');
       answerRespondEl.innerHTML = "<p>" + "You ran out of time!" + "<br>" + "That's OK, keep practicing and try again later! " + "</p>";
       countdownEl.textContent = "Times Up!";  
-      // !!! STOP QUESTION-FOR LOOP
-
       } 
    }, 1000);
 };   
@@ -103,28 +117,24 @@ function countdownTimer() {
 // quizLaunch();
       
 
-
 // !!!!! SCROLL THRU QUESTIONS
-      var i = 0
+      var i = 3
       var currentQuestion = questionArr[i];
       var currentQuestionText
       = [questionEl.innerHTML = "<h2>" + currentQuestion.questionEl + "</h2>",
          answerAEl.innerHTML = "<label>" + currentQuestion.answerAEl + "</label>",
          answerBEl.innerHTML = "<label>" + currentQuestion.answerBEl + "</label>",
          answerCEl.innerHTML = "<label>" + currentQuestion.answerCEl + "</label>",
-         answerDEl.innerHTML = "<label>" + currentQuestion.answerDEl + "</label>" ];
+         answerDEl.innerHTML = "<label>" + currentQuestion.answerDEl + "</label>"];
  
 
       //  choose answer and click submit button         
          nextQuestionEl.addEventListener('click', function() {
             console.log ("click")
-         //   var c = 0;
-         //   var q1 = document.quiz.answer.value
-
-            if (radioClickEl === answerArray[i]) {
-         console.log("OK");
-         answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
-         score = score + 10;
+         if (radioClickEl === answerArray[i]) {
+            console.log("OK");
+            answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
+            score = score += 10;
 
 
             };
