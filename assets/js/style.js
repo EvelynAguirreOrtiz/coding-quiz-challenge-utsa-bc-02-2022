@@ -11,75 +11,76 @@ var answerBEl = document.getElementById('ansB');
 var answerCEl = document.getElementById('ansC');
 var answerDEl = document.getElementById('ansD');
 // clicked answers
-// !!! NEED TO FIND CORREcT ANSWERS
-var radioClickEl = document.getElementsByClassName('answer').value;
+// !!! NEED TO FIND CORRECT ANSWERS
+// var radioClickEl = document.getElementsByClassName('answer').value;
 
-// submit answers
+// enter button
 var nextQuestionEl = document.getElementById('submit-answer');     
-
-
 // answer response
 var answerRespondEl = document.getElementById('answer-respond');
 // score
-var scoreEl = document.getElementById('high-score');
+var scoreEl = document.getElementById('your-score');
+var highScoreEl = document.getElementById('high-score');
+var saveScoreEl = document.getElementById('save-score');
+
+
 // question array
-
-
 var questionArr =[
-   {  questionEl : "What does 'HTML' stand for?", 
-      answerAEl : "A. HyperText Markup Language", 
-      answerBEl : "B. HyperText Markdown Language", 
-      answerCEl : "C. HeavyTablet Marking Language", 
-      answerDEl : "D. HyperText Marking Label",
-      correctAnswer : "answerAEl"
-   },
-   {  questionEl : "Which of the following is not a data type?", 
-      answerAEl : "A. Booleans", 
-      answerBEl : "B. Strings", 
-      answerCEl : "C. Numbers", 
-      answerDEl : "D. Alphabets"
-      
-   },
-   {  questionEl : "Which of these is an example of camel case?", 
-      answerAEl : "A. This_is_Camel_case", 
-      answerBEl : "B. thisIsCamelCase", 
-      answerCEl : "C. ThisIsCamelCase", 
-      answerDEl : "D. This_Is_Camel_Case"
+[  questionEl.innerHTML = "<h2>" +  "What does 'HTML' stand for?" + "</h2>",
+   answerAEl.innerHTML = "<label>" + "A. HyperText Markup Language" + "</label>",
+   answerBEl.innerHTML = "<label>" + "B. HyperText Markdown Language" + "</label>",
+   answerCEl.innerHTML = "<label>" + "C. HeavyTablet Marking Language" + "</label>",
+   answerDEl.innerHTML = "<label>" + "D. HyperText Marking Label" + "</label>"],
 
-   },
-   {  questionEl : "What is the order of a box model, starting from the innermost element?", 
-      answerAEl : "A. Margin, Border, Padding, Content", 
-      answerBEl : "B. Content, Margin, Padding, Border", 
-      answerCEl : "C. Content, Padding, Border, Margin", 
-      answerDEl : "D. Content, Border, Margin, Padding"
+[  questionEl.innerHTML = "<h2>" + "Which of the following is not a data type?" + "</h2>",
+   answerAEl.innerHTML = "<label>" + "A. Booleans" + "</label>",
+   answerBEl.innerHTML = "<label>" + "B. Strings" + "</label>",
+   answerCEl.innerHTML = "<label>" + "C. Numbers" + "</label>",
+   answerDEl.innerHTML = "<label>" + "D. Alphabets" + "</label>"],
 
-   },
+[  questionEl.innerHTML = "<h2>" + "Which of these is an example of camel case?" + "</h2>",
+   answerAEl.innerHTML = "<label>" + "A. This_is_Camel_case" + "</label>",
+   answerBEl.innerHTML = "<label>" + "B. thisIsCamelCase" + "</label>",
+   answerCEl.innerHTML = "<label>" + "C. ThisIsCamelCase" + "</label>",
+   answerDEl.innerHTML = "<label>" + "D. This_Is_Camel_Case" + "</label>"],
 
+[  questionEl.innerHTML = "<h2>" + "What is the order of a box model, starting from the innermost element?" + "</h2>",
+   answerAEl.innerHTML = "<label>" + "A. Margin, Border, Padding, Content" + "</label>",
+   answerBEl.innerHTML = "<label>" +  "B. Content, Margin, Padding, Border" + "</label>",
+   answerCEl.innerHTML = "<label>" + "C. Content, Padding, Border, Margin" + "</label>",
+   answerDEl.innerHTML = "<label>" + "D. Content, Border, Margin, Padding" + "</label>"]
 
+   // {  questionEl : "What is the order of a box model, starting from the innermost element?", 
+      // answerAEl : "A. Margin, Border, Padding, Content", 
+      // answerBEl : "B. Content, Margin, Padding, Border", 
+      // answerCEl : "C. Content, Padding, Border, Margin", 
+      // answerDEl : "D. Content, Border, Margin, Padding"
+
+   // },
 ];
 // answer array
-var answerArray = [answerAEl, answerDEl];
+var answerArray = [answerAEl, answerDEl, answerBEl, answerCEl];
 
 
 // CLICK TO START GAME
-var timeLeft = "";
-var score = 0
+var timeLeft = 300;
+var score = 0;
+var highScore = "";
 startQuizEl.addEventListener('click', function() {
    countdownTimer();  
-// !!!! quizLaunch();
-   // timeLeft === 60; (don't need this?)
    console.log("Start game");
    // hide start button after game starts
    startQuizEl.setAttribute("class", "hidden");
    // unhide quiz 
    quizAreaEl.removeAttribute('class', 'hidden');
-   // ser score to 0
+   // set score to 0
    scoreEl.textContent = score;
+   highScoreEl.textContent = highScore;
 });
 
 // COUNTDOWN TIMER
 function countdownTimer() {
-   var timeLeft = 5
+   // var timeLeft = 5
    var timeInterval = setInterval(function() {
       timeLeft--; 
       countdownEl.textContent = timeLeft;
@@ -94,95 +95,70 @@ function countdownTimer() {
    }, 1000);
 };   
 
+     
+var i = 0
+var questionLoop = function() {
+   for (let i = 0; i < questionArr.length; i++) {
+      console.log(i);
+   }
+   nextQuestionEl.addEventListener('click', function() {
+      console.log("click"); 
+}); 
 
-
-// run quiz
-// var questionLoop = function() {
-   // for (let i = 0; i < questionArr.length; i++) {
-      // 
-   // } 
-// };
+};
 
 // scroll through questions
 // var quizLaunch = function () {
-   // var i = 1
-   // let currentQuestion = questionArr[i];
-// 
-      // questionEl.innerHTML = "<h2>" + currentQuestion.questionEl + "</h2>";
-      // answerAEl.innerHTML = "<label>" + currentQuestion.answerAEl + "</label>";
-      // answerBEl.innerHTML = "<label>" + currentQuestion.answerBEl + "</label>";
-      // answerCEl.innerHTML = "<label>" + currentQuestion.answerCEl + "</label>";  
-      // answerDEl.innerHTML = "<label>" + currentQuestion.answerDEl + "</label>";
-// };
 // quizLaunch();
-      
 
-// !!!!! SCROLL THRU QUESTIONS
-      var i = 3
-      var currentQuestion = questionArr[i];
-      var currentQuestionText
-      = [questionEl.innerHTML = "<h2>" + currentQuestion.questionEl + "</h2>",
-         answerAEl.innerHTML = "<label>" + currentQuestion.answerAEl + "</label>",
-         answerBEl.innerHTML = "<label>" + currentQuestion.answerBEl + "</label>",
-         answerCEl.innerHTML = "<label>" + currentQuestion.answerCEl + "</label>",
-         answerDEl.innerHTML = "<label>" + currentQuestion.answerDEl + "</label>"];
- 
-
-      //  choose answer and click submit button         
-         nextQuestionEl.addEventListener('click', function() {
-            console.log ("click")
-         if (radioClickEl === answerArray[i]) {
-            console.log("OK");
-            answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
-            score = score += 10;
+// var quizLaunch = function () {
+   //  choose answer and click submit button         
+   // nextQuestionEl.addEventListener('click', function() {
+      // var currentQuestion = questionArr[i];
+         // for (let i = 0; i < questionArr.length; i++) {
+            // console.log([i]); 
+   // } 
+     
 
 
-            };
 
-         });
-      
-      
-      
-
-      // if (radioClickEl === answerArray.correctAnswer[i]) {
-         // answer is corrrect
-         // console.log("OK");
-         // answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
-         // score = score + 10;
-
-         // } else {console.log("no");
-         // answer is incorrect
-      // 
+   // if (radioClickEl === answerArray[i]) { // !!! fix this
+      // answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
+      // score = score += 10
+      // } 
+      // else {
          // answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "<br>" + "Click 'ENTER' to continue" + "</p>";
          // timeLeft = timeLeft - 5
-         // }
-         // go to next question
-         // nextQuestionEl.addEventListener('click', function() {
-            // i++
-         // });
-
-
-
-    //  });
-   
-// ANSWER IS RIGHT
-
-// answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
-// var score = 0;
-// score += 10;
-// quizLaunch();
-
-//  IF ANSWER IS WRONG, DEDUCT TIME
-//  answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "<br>" + "Click 'ENTER' to continue" + "</p>";
-// deduct time
-// timeLeft = timeLeft - 5
-// quizLaunch();
-
+      // }
+   // });
+   // i ++
+// };
+      
 
 //  !!!! GAME END IF QUESTIONS === 0
 
 // if all questions are answered
 // answerRespondEl.innerHTML = "<p>" + "Congratulations, you finished the quiz!" + "<br>" + "Enter your initials in the box to save your score!" + "</p>";
+// quizAreaEl.setAttribute('class', 'hidden')
+// !!! Save score to local storage
+
+// if (score >= highScore) {
+   // highScore = score;
+// }
+
+
 
 // ENTER INITIALS AT END OF GAME -- localStorage
 // localStorage.setItem('score', score)
+// highScoreEl.setAttribute('class', 'hidden');
+// saveScoreEl.removeAttribute('class', 'hidden');
+
+// var saveInitial = function () {
+   // localStorage.setItem("initials", JSON.stringify(initials));
+// };
+// saveInitial();
+// 
+// var saveHighScore = function () {
+   // localStorage.setItem("high-score", JSON.stringify(highScore))
+// };
+// saveHighScore();

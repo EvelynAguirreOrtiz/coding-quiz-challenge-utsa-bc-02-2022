@@ -28,28 +28,20 @@
       <h2 id="questions"></h2>
       <!-- answers -->
       <p class="answer">
-        <!-- <span class="radio-wrapper"> -->
             <input type="radio" id="answer" name="answer" value="a" checked />
             <label for="radio" id="ansA"></label>
-        <!-- </span> -->
       </p>
       <p class="answer">
-        <!-- <span class="radio-wrapper"> -->
             <input type="radio" id="answer" name="answer" value="b" checked />
             <label for="radio" id="ansB"></label>
-        <!-- </span> -->
       </p>
       <p class="answer">
-        <!-- <span class="radio-wrapper"> -->
             <input type="radio" id="answer" name="answer" value="c" checked />
             <label for="radio" id="ansC"></label>
-        <!-- </span> -->
       </p>
       <p class="answer">
-        <!-- <span class="radio-wrapper"> -->
             <input type="radio" id="answer" name="answer" value="d" checked />
             <label for="radio" id="ansD"></label>
-        <!-- </span> -->
       </p>
 
     <!-- SUBMIT ANSWER -->
@@ -60,19 +52,33 @@
     <div id="answer-respond" class="response">
       <p class="response"></p>
     </div>
-      
-   
+       
   <!-- SCORING AND TIMER SECTION -->
   <section class="scoreboard">
-    <div class="high-score">
+    <div class="your-score">
       <h3>Your Score</h3>
-      <h4 id="high-score"></h4>
+      <h4 id="your-score"></h4>
     </div>
 
     <div class="timer">
       <h3>Time Remaining</h3>
       <h4 id="countdown"></h4>
     </div>
+  </section>
+
+
+  <!-- ADD HIDDEN TO HIDE  -->
+  <section class="high-score-info">
+    <div class="high-score">
+      <h1>HIGH SCORE</h1>
+      <h2 id="high-score"></h2>
+    </div>
+    <!-- ADD HIDDEN TO HIDE -->
+    <form action="" method="get" id="save-score" class="hidden">
+      <h3 class="initials">Enter your initials here to save your score</h3>
+      <input class="text" name="initials" maxlength="3">
+      <button type="submit" id="enter-initials" class="initials">Enter</button>
+    </form> 
   </section>
 
   <script src="./assets/js/style.js"></script>
