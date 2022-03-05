@@ -1,5 +1,5 @@
 // start timer and display questions
-var startQuizEl = document.getElementById('start-game');
+var startQuizEl = document.getElementById('start-game-btn');
 var countdownEl = document.getElementById('countdown');
 // quiz area
 var quizAreaEl = document.getElementById('quiz-area')
@@ -15,7 +15,7 @@ var answerDEl = document.getElementById('ansD');
 // var radioClickEl = document.getElementsByClassName('answer').value;
 
 // enter button
-var nextQuestionEl = document.getElementById('submit-answer');     
+var nextQuestionEl = document.getElementById('submit-answer-btn');     
 // answer response
 var answerRespondEl = document.getElementById('answer-respond');
 // score
@@ -49,18 +49,10 @@ var questionArr =[
    answerBEl.innerHTML = "<label>" +  "B. Content, Margin, Padding, Border" + "</label>",
    answerCEl.innerHTML = "<label>" + "C. Content, Padding, Border, Margin" + "</label>",
    answerDEl.innerHTML = "<label>" + "D. Content, Border, Margin, Padding" + "</label>"]
-
-   // {  questionEl : "What is the order of a box model, starting from the innermost element?", 
-      // answerAEl : "A. Margin, Border, Padding, Content", 
-      // answerBEl : "B. Content, Margin, Padding, Border", 
-      // answerCEl : "C. Content, Padding, Border, Margin", 
-      // answerDEl : "D. Content, Border, Margin, Padding"
-
-   // },
 ];
 // answer array
 var answerArray = [answerAEl, answerDEl, answerBEl, answerCEl];
-
+var currentQuestion =[];
 
 // CLICK TO START GAME
 var timeLeft = 300;
@@ -76,6 +68,8 @@ startQuizEl.addEventListener('click', function() {
    // set score to 0
    scoreEl.textContent = score;
    highScoreEl.textContent = highScore;
+   countdownEl.textContent = timeLeft;
+
 });
 
 // COUNTDOWN TIMER
@@ -96,15 +90,15 @@ function countdownTimer() {
 };   
 
      
-var i = 0
+// var i = 0
 var questionLoop = function() {
    for (let i = 0; i < questionArr.length; i++) {
-      console.log(i);
+      
    }
    nextQuestionEl.addEventListener('click', function() {
-      console.log("click"); 
+      
 }); 
-
+questionLoop();
 };
 
 // scroll through questions
@@ -133,9 +127,8 @@ var questionLoop = function() {
    // });
    // i ++
 // };
-      
 
-//  !!!! GAME END IF QUESTIONS === 0
+//  !!!! GAME END IF QUESTIONS LENGTH === 0
 
 // if all questions are answered
 // answerRespondEl.innerHTML = "<p>" + "Congratulations, you finished the quiz!" + "<br>" + "Enter your initials in the box to save your score!" + "</p>";
@@ -157,7 +150,7 @@ var questionLoop = function() {
    // localStorage.setItem("initials", JSON.stringify(initials));
 // };
 // saveInitial();
-// 
+
 // var saveHighScore = function () {
    // localStorage.setItem("high-score", JSON.stringify(highScore))
 // };
