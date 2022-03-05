@@ -2,7 +2,7 @@
 var startQuizEl = document.getElementById('start-game-btn');
 var countdownEl = document.getElementById('countdown');
 // quiz area
-var quizAreaEl = document.getElementById('quiz-area')
+var quizBlockEl = document.getElementById('quiz-block');
 // questions
 var questionEl = document.getElementById('questions');
 // answers
@@ -15,7 +15,7 @@ var answerDEl = document.getElementById('ansD');
 // var radioClickEl = document.getElementsByClassName('answer').value;
 
 // enter button
-var nextQuestionEl = document.getElementById('submit-answer-btn');     
+var nextQuestionEl = document.getElementById('submit-answer-display-btn');     
 // answer response
 var answerRespondEl = document.getElementById('answer-respond');
 // score
@@ -52,20 +52,6 @@ var questionArr =[
       answerDEl:  "D. Content, Border, Margin, Padding"}
    ];
    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // var questionArr =[
 // [  questionEl.innerHTML = "<h2>" +  "What does 'HTML' stand for?" + "</h2>",
@@ -106,7 +92,7 @@ startQuizEl.addEventListener('click', function() {
    // hide start button after game starts
    startQuizEl.setAttribute("class", "hidden");
    // unhide quiz 
-   quizAreaEl.removeAttribute('class', 'hidden');
+   quizBlockEl.removeAttribute("class", "hidden");
    // set score to 0
    scoreEl.textContent = score;
    highScoreEl.textContent = highScore;
@@ -124,7 +110,7 @@ function countdownTimer() {
       if (timeLeft === 0) { 
       clearInterval(timeInterval); 
       // hide remaining questions
-      quizAreaEl.setAttribute('class', 'hidden');
+      quizBlockEl.setAttribute('class', 'hidden');
       answerRespondEl.innerHTML = "<p>" + "You ran out of time!" + "<br>" + "That's OK, keep practicing and try again later! " + "</p>";
       countdownEl.textContent = "Times Up!";  
       } 
@@ -133,15 +119,15 @@ function countdownTimer() {
 
      
 // var i = 0
-var questionLoop = function() {
-   for (let i = 0; i < questionArr.length; i++) {
+// var questionLoop = function() {
+   // for (let i = 0; i < questionArr.length; i++) {
       
-   }
-   nextQuestionEl.addEventListener('click', function() {
+   // }
+   // nextQuestionEl.addEventListener('click', function() {
       
-}); 
-questionLoop();
-};
+// }); 
+// questionLoop();
+// };
 
 // scroll through questions
 // var quizLaunch = function () {
@@ -174,7 +160,7 @@ questionLoop();
 
 // if all questions are answered
 // answerRespondEl.innerHTML = "<p>" + "Congratulations, you finished the quiz!" + "<br>" + "Enter your initials in the box to save your score!" + "</p>";
-// quizAreaEl.setAttribute('class', 'hidden')
+// quizBlockEl.setAttribute('class', 'hidden')
 // !!! Save score to local storage
 
 // if (score >= highScore) {
