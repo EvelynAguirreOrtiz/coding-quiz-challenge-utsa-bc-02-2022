@@ -25,33 +25,75 @@ var saveScoreEl = document.getElementById('save-score');
 
 
 // question array
+
 var questionArr =[
-[  questionEl.innerHTML = "<h2>" +  "What does 'HTML' stand for?" + "</h2>",
-   answerAEl.innerHTML = "<label>" + "A. HyperText Markup Language" + "</label>",
-   answerBEl.innerHTML = "<label>" + "B. HyperText Markdown Language" + "</label>",
-   answerCEl.innerHTML = "<label>" + "C. HeavyTablet Marking Language" + "</label>",
-   answerDEl.innerHTML = "<label>" + "D. HyperText Marking Label" + "</label>"],
+   {  questionEl: "What does 'HTML' stand for?",
+      answerAEl:  "A. HyperText Markup Language",
+      answerBEl:  "B. HyperText Markdown Language",
+      answerCEl:  "C. HeavyTablet Marking Language",
+      answerDEl:  "D. HyperText Marking Label" },
+   
+   {  questionEl: "Which of the following is not a data type?",
+      answerAEl:  "A. Booleans",
+      answerBEl:  "B. Strings",
+      answerCEl:  "C. Numbers",
+      answerDEl:  "D. Alphabets"},
+   
+   {  questionEl: "Which of these is an example of camel case?",
+      answerAEl:  "A. This_is_Camel_case",
+      answerBEl:  "B. thisIsCamelCase",
+      answerCEl:  "C. ThisIsCamelCase",
+      answerDEl:  "D. This_Is_Camel_Case"},
+   
+   {  questionEl: "What is the order of a box model, starting from the innermost element?",
+      answerAEl:  "A. Margin, Border, Padding, Content",
+      answerBEl:  "B. Content, Margin, Padding, Border",
+      answerCEl:  "C. Content, Padding, Border, Margin",
+      answerDEl:  "D. Content, Border, Margin, Padding"}
+   ];
+   
 
-[  questionEl.innerHTML = "<h2>" + "Which of the following is not a data type?" + "</h2>",
-   answerAEl.innerHTML = "<label>" + "A. Booleans" + "</label>",
-   answerBEl.innerHTML = "<label>" + "B. Strings" + "</label>",
-   answerCEl.innerHTML = "<label>" + "C. Numbers" + "</label>",
-   answerDEl.innerHTML = "<label>" + "D. Alphabets" + "</label>"],
 
-[  questionEl.innerHTML = "<h2>" + "Which of these is an example of camel case?" + "</h2>",
-   answerAEl.innerHTML = "<label>" + "A. This_is_Camel_case" + "</label>",
-   answerBEl.innerHTML = "<label>" + "B. thisIsCamelCase" + "</label>",
-   answerCEl.innerHTML = "<label>" + "C. ThisIsCamelCase" + "</label>",
-   answerDEl.innerHTML = "<label>" + "D. This_Is_Camel_Case" + "</label>"],
 
-[  questionEl.innerHTML = "<h2>" + "What is the order of a box model, starting from the innermost element?" + "</h2>",
-   answerAEl.innerHTML = "<label>" + "A. Margin, Border, Padding, Content" + "</label>",
-   answerBEl.innerHTML = "<label>" +  "B. Content, Margin, Padding, Border" + "</label>",
-   answerCEl.innerHTML = "<label>" + "C. Content, Padding, Border, Margin" + "</label>",
-   answerDEl.innerHTML = "<label>" + "D. Content, Border, Margin, Padding" + "</label>"]
-];
+
+
+
+
+
+
+
+
+
+
+
+
+// var questionArr =[
+// [  questionEl.innerHTML = "<h2>" +  "What does 'HTML' stand for?" + "</h2>",
+//    answerAEl.innerHTML = "<label>" + "A. HyperText Markup Language" + "</label>",
+//    answerBEl.innerHTML = "<label>" + "B. HyperText Markdown Language" + "</label>",
+//    answerCEl.innerHTML = "<label>" + "C. HeavyTablet Marking Language" + "</label>",
+//    answerDEl.innerHTML = "<label>" + "D. HyperText Marking Label" + "</label>"],
+
+// [  questionEl.innerHTML = "<h2>" + "Which of the following is not a data type?" + "</h2>",
+//    answerAEl.innerHTML = "<label>" + "A. Booleans" + "</label>",
+//    answerBEl.innerHTML = "<label>" + "B. Strings" + "</label>",
+//    answerCEl.innerHTML = "<label>" + "C. Numbers" + "</label>",
+//    answerDEl.innerHTML = "<label>" + "D. Alphabets" + "</label>"],
+
+// [  questionEl.innerHTML = "<h2>" + "Which of these is an example of camel case?" + "</h2>",
+//    answerAEl.innerHTML = "<label>" + "A. This_is_Camel_case" + "</label>",
+//    answerBEl.innerHTML = "<label>" + "B. thisIsCamelCase" + "</label>",
+//    answerCEl.innerHTML = "<label>" + "C. ThisIsCamelCase" + "</label>",
+//    answerDEl.innerHTML = "<label>" + "D. This_Is_Camel_Case" + "</label>"],
+
+// [  questionEl.innerHTML = "<h2>" + "What is the order of a box model, starting from the innermost element?" + "</h2>",
+//    answerAEl.innerHTML = "<label>" + "A. Margin, Border, Padding, Content" + "</label>",
+//    answerBEl.innerHTML = "<label>" +  "B. Content, Margin, Padding, Border" + "</label>",
+//    answerCEl.innerHTML = "<label>" + "C. Content, Padding, Border, Margin" + "</label>",
+//    answerDEl.innerHTML = "<label>" + "D. Content, Border, Margin, Padding" + "</label>"]
+// ];
 // answer array
-var answerArray = [answerAEl, answerDEl, answerBEl, answerCEl];
+var answerArray = [answerAEl.value, answerDEl.value, answerBEl.value, answerCEl.value];
 var currentQuestion =[];
 
 // CLICK TO START GAME
