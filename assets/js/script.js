@@ -10,11 +10,6 @@ var answerAEl = document.getElementById('ansA');
 var answerBEl = document.getElementById('ansB');
 var answerCEl = document.getElementById('ansC');
 var answerDEl = document.getElementById('ansD');
-// clicked answers
-
-
-
-
 // enter button
 var nextQuestionEl = document.getElementById('submit-answer-btn');     
 // answer response
@@ -152,13 +147,9 @@ var quizLaunch = function () {
    answerCEl.innerHTML = "<label>" + questionArr[i].answerC + "</label>";
    answerDEl.innerHTML = "<label>" + questionArr[i].answerD + "</label>";  
 
-   answerAEl.addEventListener('click', function() {
-      if (answer === 
-   }
-
-
-   var checkAnswer = function(answer) {
-      if (answer === questionArr[i].correctAns) {
+   var clickedA = function(){
+      document.getElementById('ansA').innerHTML = "A"
+      if (clickedA === questionArr[i].correctAns) {
          answerRespondEl.innerHTML.removeAttribute("class", "hidden");
          answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
          score = score += 10
@@ -167,13 +158,35 @@ var quizLaunch = function () {
          answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "<br>" + "Click 'ENTER' to continue" + "</p>";
       timeLeft = timeLeft - 5
       }
+   }
+   return clickedA;
+   // var clickedB = function(){
+      // document.getElementById('ansB').innerHTML = "B"
+   // }
+   // var clickedC = function(){
+      // document.getElementById('ansC').innerHTML = "C"
+   // }
+   // var clickedD = function(){
+      // document.getElementById('ansD').innerHTML = "D"
+   // }
 
-         nextQuestionEl.addEventListener('click', function() {
-            answerRespondEl.innerHTML.setAttribute("class", "hidden");
-         }
+   // var checkAnswer = function(answer) {
+      // if (answer === questionArr[i].correctAns) {
+         // answerRespondEl.innerHTML.removeAttribute("class", "hidden");
+         // answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
+         // score = score += 10
+      // } else {
+         // answerRespondEl.innerHTML.removeAttribute("class", "hidden");
+         // answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "<br>" + "Click 'ENTER' to continue" + "</p>";
+      // timeLeft = timeLeft - 5
+      // }
 
-   };
-   checkAnswer();
+         // nextQuestionEl.addEventListener('click', function() {
+            // answerRespondEl.innerHTML.setAttribute("class", "hidden");
+         // }
+
+   // };
+   // checkAnswer();
    // });
    // i ++
 };
