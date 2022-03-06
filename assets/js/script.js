@@ -11,11 +11,12 @@ var answerBEl = document.getElementById('ansB');
 var answerCEl = document.getElementById('ansC');
 var answerDEl = document.getElementById('ansD');
 // clicked answers
-// !!! NEED TO FIND CORRECT ANSWERS
-// var radioClickEl = document.getElementsByClassName('answer').value;
+
+
+
 
 // enter button
-var nextQuestionEl = document.getElementById('submit-answer-display-btn');     
+var nextQuestionEl = document.getElementById('submit-answer-btn');     
 // answer response
 var answerRespondEl = document.getElementById('answer-respond');
 // score
@@ -23,35 +24,43 @@ var scoreEl = document.getElementById('your-score');
 var highScoreEl = document.getElementById('high-score');
 var saveScoreEl = document.getElementById('save-score');
 
-
 // question array
-
 var questionArr =[
-   {  questionEl: "What does 'HTML' stand for?",
-      answerAEl:  "A. HyperText Markup Language",
-      answerBEl:  "B. HyperText Markdown Language",
-      answerCEl:  "C. HeavyTablet Marking Language",
-      answerDEl:  "D. HyperText Marking Label" },
+   {  question: "What does 'HTML' stand for?",
+      answerA:  "A. HyperText Markup Language",
+      answerB:  "B. HyperText Markdown Language",
+      answerC:  "C. HeavyTablet Marking Language",
+      answerD:  "D. HyperText Marking Label",
+      correctAns: "A"},
    
-   {  questionEl: "Which of the following is not a data type?",
-      answerAEl:  "A. Booleans",
-      answerBEl:  "B. Strings",
-      answerCEl:  "C. Numbers",
-      answerDEl:  "D. Alphabets"},
+   {  question: "Which of the following is NOT a data type?",
+      answerA:  "A. Booleans",
+      answerB:  "B. Strings",
+      answerC:  "C. Numbers",
+      answerD:  "D. Alphabets",
+      correctAns: "D"},
    
-   {  questionEl: "Which of these is an example of camel case?",
-      answerAEl:  "A. This_is_Camel_case",
-      answerBEl:  "B. thisIsCamelCase",
-      answerCEl:  "C. ThisIsCamelCase",
-      answerDEl:  "D. This_Is_Camel_Case"},
+   {  question: "Which of these is an example of camel case?",
+      answerA:  "A. This_is_Camel_case",
+      answerB:  "B. thisIsCamelCase",
+      answerC:  "C. ThisIsCamelCase",
+      answerD:  "D. This_Is_Camel_Case",
+      correctAns: "B"},
    
-   {  questionEl: "What is the order of a box model, starting from the innermost element?",
-      answerAEl:  "A. Margin, Border, Padding, Content",
-      answerBEl:  "B. Content, Margin, Padding, Border",
-      answerCEl:  "C. Content, Padding, Border, Margin",
-      answerDEl:  "D. Content, Border, Margin, Padding"}
+   {  question: "What is the order of a box model, starting from the innermost element?",
+      answerA:  "A. Margin, Border, Padding, Content",
+      answerB:  "B. Content, Margin, Padding, Border",
+      answerC:  "C. Content, Padding, Border, Margin",
+      answerD:  "D. Content, Border, Margin, Padding",
+      correctAns: "C"}
    ];
    
+   // var questionText = [ questionEl.innerHTML = "<h2>" +  questionArr.question + "</h2>",
+                        // answerAEl.innerHTML = "<label>" + answerAEl + "</label>",
+                        // answerBEl.innerHTML = "<label>" + answerBEl + "</label>",
+                        // answerCEl.innerHTML = "<label>" + answerCEl + "</label>",
+                        // answerDEl.innerHTML = "<label>" + answerDEl + "</label>"]
+   // 
 
 // var questionArr =[
 // [  questionEl.innerHTML = "<h2>" +  "What does 'HTML' stand for?" + "</h2>",
@@ -121,10 +130,10 @@ function countdownTimer() {
 // var i = 0
 // var questionLoop = function() {
    // for (let i = 0; i < questionArr.length; i++) {
-      
+
    // }
    // nextQuestionEl.addEventListener('click', function() {
-      
+   
 // }); 
 // questionLoop();
 // };
@@ -132,14 +141,46 @@ function countdownTimer() {
 // scroll through questions
 // var quizLaunch = function () {
 // quizLaunch();
+// 
+// var i = 0;
+for (let i = 0; i < questionArr.length; i++) {
+var quizLaunch = function () {
+   // display questions and choose answer
+   questionEl.innerHTML = "<h2>" +  questionArr[i].question + "</h2>";
+   answerAEl.innerHTML = "<label>" + questionArr[i].answerA + "</label>";
+   answerBEl.innerHTML = "<label>" + questionArr[i].answerB + "</label>";
+   answerCEl.innerHTML = "<label>" + questionArr[i].answerC + "</label>";
+   answerDEl.innerHTML = "<label>" + questionArr[i].answerD + "</label>";  
 
-// var quizLaunch = function () {
-   //  choose answer and click submit button         
+   answerAEl.addEventListener('click', function() {
+      if (answer === 
+   }
+
+
+   var checkAnswer = function(answer) {
+      if (answer === questionArr[i].correctAns) {
+         answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
+         score = score += 10
+      } else {
+      answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "<br>" + "Click 'ENTER' to continue" + "</p>";
+      timeLeft = timeLeft - 5
+      }
+   };
+   checkAnswer();
+   // });
+   // i ++
+};
+
+
+
+
+
    // nextQuestionEl.addEventListener('click', function() {
       // var currentQuestion = questionArr[i];
          // for (let i = 0; i < questionArr.length; i++) {
             // console.log([i]); 
-   // } 
+}; 
+quizLaunch();         
      
 
 
