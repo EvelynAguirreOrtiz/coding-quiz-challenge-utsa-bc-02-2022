@@ -19,14 +19,13 @@ var scoreEl = document.getElementById('your-score');
 var highScoreEl = document.getElementById('high-score');
 var saveScoreEl = document.getElementById('save-score');
 
-var A = ""
-var B = ""
-var C = ""
-var D = ""
+// var A = ""
+// var B = ""
+// var C = ""
+// var D = ""
 // question array
 var questionArr = [
-   {
-      question: "What does 'HTML' stand for?",
+   {  question: "What does 'HTML' stand for?",
       answerA: "A. HyperText Markup Language",
       answerB: "B. HyperText Markdown Language",
       answerC: "C. HeavyTablet Marking Language",
@@ -34,8 +33,7 @@ var questionArr = [
       correctAns: "A"
    },
 
-   {
-      question: "Which of the following is NOT a data type?",
+   {  question: "Which of the following is NOT a data type?",
       answerA: "A. Booleans",
       answerB: "B. Strings",
       answerC: "C. Numbers",
@@ -43,8 +41,7 @@ var questionArr = [
       correctAns: "D"
    },
 
-   {
-      question: "Which of these is an example of camel case?",
+   {  question: "Which of these is an example of camel case?",
       answerA: "A. This_is_Camel_case",
       answerB: "B. thisIsCamelCase",
       answerC: "C. ThisIsCamelCase",
@@ -52,8 +49,7 @@ var questionArr = [
       correctAns: "B"
    },
 
-   {
-      question: "What is the order of a box model, starting from the innermost element?",
+   {  question: "What is the order of a box model, starting from the innermost element?",
       answerA: "A. Margin, Border, Padding, Content",
       answerB: "B. Content, Margin, Padding, Border",
       answerC: "C. Content, Padding, Border, Margin",
@@ -79,12 +75,10 @@ startQuizEl.addEventListener('click', function () {
    scoreEl.textContent = score;
    highScoreEl.textContent = highScore;
    countdownEl.textContent = timeLeft;
-
 });
 
 // COUNTDOWN TIMER
 function countdownTimer() {
-   // var timeLeft = 5
    var timeInterval = setInterval(function () {
       timeLeft--;
       countdownEl.textContent = timeLeft;
@@ -94,11 +88,10 @@ function countdownTimer() {
          // hide remaining questions
          quizBlockEl.setAttribute('class', 'hidden');
          answerRespondEl.innerHTML = "<p>" + "You ran out of time!" + "<br>" + "That's OK, keep practicing and try again later! " + "</p>";
-         countdownEl.textContent = "Times Up!";
+         countdownEl.textContent = "Time's Up!";
       }
    }, 1000);
 };
-
 
 var answer = ""
 var clickedA = function () {
@@ -122,7 +115,6 @@ var i = 0
 var nextQuestion = function () {
    if (i < questionArr.length - 1) {
    if (answer === questionArr[i].correctAns) {
-
       quizBlockEl.setAttribute("class", "hidden");
       answerRespondEl.removeAttribute("class", "hidden");
       answerRespondEl.innerHTML = "<p>" + "That is correct!" + "</p>";
@@ -143,7 +135,7 @@ var nextQuestion = function () {
          if (i <= questionArr.length -1) {
          quizLaunch()} 
          quizBlockEl.removeAttribute("class", "hidden");         
-   }, 2000)
+   }, 1000)
 } else {
    quizEnd();
 }
@@ -159,34 +151,38 @@ var quizLaunch = function () {
 quizLaunch();
 
 //  !!!! GAME END IF QUESTIONS LENGTH === 0
-
 var quizEnd = function() {
 
    answerRespondEl.innerHTML = "<p>" + "Congratulations, you finished the quiz!" + "<br>" + "Enter your initials in the box to save your score!" + "</p>";
    answerRespondEl.removeAttribute("class", "hidden");
-   quizBlockEl.setAttribute('class', 'hidden')
-   // !!! Save score to local storage
-   // 
+   quizBlockEl.setAttribute('class', 'hidden');   
+   scoreEl.setAttribute('class', 'hidden');
+   saveScoreEl.removeAttribute('class', 'hidden');
+   localStorage.setItem('score', score);
+
    if (score >= highScore) {
       highScore = score;
-   }
+      highScoreEl.textContent = score;
+   };   
+};
    
-}
-// 
+   
+   
 
 
 
+// };
+// quizEnd();
 // ENTER INITIALS AT END OF GAME -- localStorage
-// localStorage.setItem('score', score)
-// highScoreEl.setAttribute('class', 'hidden');
-// saveScoreEl.removeAttribute('class', 'hidden');
+
+
 
 // var saveInitial = function () {
    // localStorage.setItem("initials", JSON.stringify(initials));
 // };
 // saveInitial();
 
-// var saveHighScore = function () {
-   // localStorage.setItem("high-score", JSON.stringify(highScore))
-// };
-// saveHighScore();
+var saveHighScore = function () {
+   localStorage.setItem("high-score", JSON.stringify(highScore))
+};
+saveHighScore();
