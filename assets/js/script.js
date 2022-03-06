@@ -161,7 +161,9 @@ quizLaunch();
 //  !!!! GAME END IF QUESTIONS LENGTH === 0
 
 var quizEnd = function() {
+
    answerRespondEl.innerHTML = "<p>" + "Congratulations, you finished the quiz!" + "<br>" + "Enter your initials in the box to save your score!" + "</p>";
+   answerRespondEl.removeAttribute("class", "hidden");
    quizBlockEl.setAttribute('class', 'hidden')
    // !!! Save score to local storage
    // 
