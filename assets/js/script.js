@@ -159,12 +159,19 @@ var quizLaunch = function () {
 
    var checkAnswer = function(answer) {
       if (answer === questionArr[i].correctAns) {
+         answerRespondEl.innerHTML.removeAttribute("class", "hidden");
          answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
          score = score += 10
       } else {
-      answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "<br>" + "Click 'ENTER' to continue" + "</p>";
+         answerRespondEl.innerHTML.removeAttribute("class", "hidden");
+         answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "<br>" + "Click 'ENTER' to continue" + "</p>";
       timeLeft = timeLeft - 5
       }
+
+         nextQuestionEl.addEventListener('click', function() {
+            answerRespondEl.innerHTML.setAttribute("class", "hidden");
+         }
+
    };
    checkAnswer();
    // });
