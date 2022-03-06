@@ -20,36 +20,26 @@
   <section class="quiz-area">
     <!--  start button -->
     <div class="start-btn">
-      <button type="button" id="start-game" class="start-game">Start</button> 
+      <button type="button" id="start-game-btn" class="start-game-btn">Start</button> 
     </div>
     <!-- question area -->
-    <form action="" class="hidden" id="quiz-area" name="quiz">
+    <section  class= "hidden" id="quiz-block">
       <!-- question -->
       <h2 id="questions"></h2>
       <!-- answers -->
-      <p class="answer">
-            <input type="radio" id="answer" name="answer" value="a" checked />
-            <label for="radio" id="ansA"></label>
-      </p>
-      <p class="answer">
-            <input type="radio" id="answer" name="answer" value="b" checked />
-            <label for="radio" id="ansB"></label>
-      </p>
-      <p class="answer">
-            <input type="radio" id="answer" name="answer" value="c" checked />
-            <label for="radio" id="ansC"></label>
-      </p>
-      <p class="answer">
-            <input type="radio" id="answer" name="answer" value="d" checked />
-            <label for="radio" id="ansD"></label>
-      </p>
+      <div class="answers">
+        <button type="button" class="answer-display-btn" id="ansA" onclick="clickedA()"></button>
+        <button type="button" class="answer-display-btn" id="ansB" onclick="clickedB()"></button>
+        <button type="button" class="answer-display-btn" id="ansC" onclick="clickedC()"></button>
+        <button type="button" class="answer-display-btn" id="ansD" onclick="clickedD()"></button>
+      </div>
 
     <!-- SUBMIT ANSWER -->
-    <button type="submit" id="submit-answer" class="submit-answer">Enter</button>
-    </form>
+      <button type="button" id="enter-submit-btn" class="enter-submit-btn" onclick="nextQuestion()">Enter</button>
+    </section>
 
     <!-- CORECT/INCORRECT notification-->
-    <div id="answer-respond" class="response">
+    <div id="answer-respond" class="response hidden">
       <p class="response"></p>
     </div>
        
@@ -66,14 +56,15 @@
     </div>
   </section>
 
-
-  <!-- ADD HIDDEN TO HIDE  -->
-  <section class="high-score-info">
+<!-- HIGH SCORE NOTIFICATION -->
+  <section class="hidden">
     <div class="high-score">
       <h1>HIGH SCORE</h1>
       <h2 id="high-score"></h2>
     </div>
+<!--  -->
     <!-- ADD HIDDEN TO HIDE -->
+  <!-- !!REFACTOR -->
     <form action="" method="get" id="save-score" class="hidden">
       <h3 class="initials">Enter your initials here to save your score</h3>
       <input class="text" name="initials" maxlength="3">
@@ -81,7 +72,8 @@
     </form> 
   </section>
 
-  <script src="./assets/js/style.js"></script>
+  <script src="./assets/js/script.js"></script>
 
 </body>
+<footef></footef>
 </html>
