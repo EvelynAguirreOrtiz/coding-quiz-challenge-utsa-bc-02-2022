@@ -137,9 +137,27 @@ function countdownTimer() {
 // var quizLaunch = function () {
 // quizLaunch();
 // 
+var answer = ""
+var clickedA = function(){
+    answer = "A"
+};  
+var clickedB = function(){
+   answer = "B"
+}
+var clickedC = function(){
+   answer = "C"
+}
+var clickedD = function(){
+   document.getElementById('ansD').innerHTML = "D"
+}
+
+
 // var i = 0;
-for (let i = 0; i < questionArr.length; i++) {
+// for (let i = 0; i < questionArr.length; i++) {
 var quizLaunch = function () {
+
+for (let i = 0; i < questionArr.length; i++) {
+
    // display questions and choose answer
    questionEl.innerHTML = "<h2>" +  questionArr[i].question + "</h2>";
    answerAEl.innerHTML = "<label>" + questionArr[i].answerA + "</label>";
@@ -147,28 +165,21 @@ var quizLaunch = function () {
    answerCEl.innerHTML = "<label>" + questionArr[i].answerC + "</label>";
    answerDEl.innerHTML = "<label>" + questionArr[i].answerD + "</label>";  
 
-   var clickedA = function(){
-      document.getElementById('ansA').innerHTML = "A"
-      if (clickedA === questionArr[i].correctAns) {
+   
+   
+      if (answer === questionArr[i].correctAns) {
          answerRespondEl.innerHTML.removeAttribute("class", "hidden");
          answerRespondEl.innerHTML = "<p>" + "That is correct!" + "<br>" + "Click 'ENTER' to continue" + "</p>";
-         score = score += 10
+         score = score += 10;
+         console.log("correct");
       } else {
-         answerRespondEl.innerHTML.removeAttribute("class", "hidden");
+         // answerRespondEl.innerHTML.removeAttribute("class", "hidden");
          answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "<br>" + "Click 'ENTER' to continue" + "</p>";
-      timeLeft = timeLeft - 5
+         timeLeft = timeLeft - 5;
+         console.log('incorrect');
       }
-   }
-   return clickedA;
-   // var clickedB = function(){
-      // document.getElementById('ansB').innerHTML = "B"
-   // }
-   // var clickedC = function(){
-      // document.getElementById('ansC').innerHTML = "C"
-   // }
-   // var clickedD = function(){
-      // document.getElementById('ansD').innerHTML = "D"
-   // }
+
+   
 
    // var checkAnswer = function(answer) {
       // if (answer === questionArr[i].correctAns) {
