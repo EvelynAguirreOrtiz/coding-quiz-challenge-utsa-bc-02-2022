@@ -1,20 +1,25 @@
-# coding-quiz-challenge-utsa-bc-02-2022
-Module 4 Challenge
+# Coding Quiz
+## Module 4 Challenge
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. For this challenge, you will build a timed code quiz that's made up of multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
+### Purpose
+
+This is a timed code multiple-choice coding quiz that runs in a browser.
+
+The quiz begins once the start button is clicked. The countdown timer is set for 60 seconds.
+
+There is a short series of four questions with four possible answers. Ten points are awarded for each correct answer, while 10 seconds are deducted for each incorrect answer.
+
+If the timer reaches 0, the user is notified that the time is up. If the user answers all four questions within the time allowed, then they are congratulated on finishing the quiz.
+
+At the end of the game, the user should be able to save their high score and initials, but that part os the code is not yet functional.
+
+### Built With
+
+- HTML
+- CSS
+- Javascript
+
+### Website
 
 
-
-
-
-GIVEN I am taking a code quiz
-WHEN I click the Start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and score
+![](/assets/images/coding-quiz-screenshot.png)

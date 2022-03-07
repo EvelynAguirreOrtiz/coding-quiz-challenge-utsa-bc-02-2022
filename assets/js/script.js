@@ -25,7 +25,8 @@ var saveScoreEl = document.getElementById('save-score');
 // var D = ""
 // question array
 var questionArr = [
-   {  question: "What does 'HTML' stand for?",
+   {
+      question: "What does 'HTML' stand for?",
       answerA: "A. HyperText Markup Language",
       answerB: "B. HyperText Markdown Language",
       answerC: "C. HeavyTablet Marking Language",
@@ -33,7 +34,8 @@ var questionArr = [
       correctAns: "A"
    },
 
-   {  question: "Which of the following is NOT a data type?",
+   {
+      question: "Which of the following is NOT a data type?",
       answerA: "A. Booleans",
       answerB: "B. Strings",
       answerC: "C. Numbers",
@@ -41,7 +43,8 @@ var questionArr = [
       correctAns: "D"
    },
 
-   {  question: "Which of these is an example of camel case?",
+   {
+      question: "Which of these is an example of camel case?",
       answerA: "A. This_is_Camel_case",
       answerB: "B. thisIsCamelCase",
       answerC: "C. ThisIsCamelCase",
@@ -49,7 +52,8 @@ var questionArr = [
       correctAns: "B"
    },
 
-   {  question: "What is the order of a box model, starting from the innermost element?",
+   {
+      question: "What is the order of a box model, starting from the innermost element?",
       answerA: "A. Margin, Border, Padding, Content",
       answerB: "B. Content, Margin, Padding, Border",
       answerC: "C. Content, Padding, Border, Margin",
@@ -61,7 +65,7 @@ var questionArr = [
 var currentQuestion = [];
 
 // CLICK TO START GAME
-var timeLeft = 75;
+var timeLeft = 60;
 var score = 0;
 var highScore = "";
 startQuizEl.addEventListener('click', function () {
@@ -87,6 +91,7 @@ function countdownTimer() {
          clearInterval(timeInterval);
          // hide remaining questions
          quizBlockEl.setAttribute('class', 'hidden');
+         answerRespondEl.removeAttribute('class', 'hidden');
          answerRespondEl.innerHTML = "<p>" + "You ran out of time!" + "<br>" + "That's OK, keep practicing and try again later! " + "</p>";
          countdownEl.textContent = "Time's Up!";
       }
@@ -113,32 +118,33 @@ var clickedD = function () {
 
 var i = 0
 var nextQuestion = function () {
-   if (i < questionArr.length - 1) {
-   if (answer === questionArr[i].correctAns) {
-      quizBlockEl.setAttribute("class", "hidden");
-      answerRespondEl.removeAttribute("class", "hidden");
-      answerRespondEl.innerHTML = "<p>" + "That is correct!" + "</p>";
-      score = score + 10;
-      scoreEl.textContent = score;
-      console.log("correct");
-   } else {
-      quizBlockEl.setAttribute("class", "hidden");
-      answerRespondEl.removeAttribute("class", "hidden");
-      answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "</p>";
-      timeLeft = timeLeft - 5;
-      countdownEl.textContent = timeLeft;
-      console.log('incorect');
-   };
-   setTimeout(function () {
-      answerRespondEl.setAttribute("class", "hidden");
-         i++;
-         if (i <= questionArr.length -1) {
-         quizLaunch()} 
-         quizBlockEl.removeAttribute("class", "hidden");         
-   }, 1000)
-} else {
-   quizEnd();
-}
+   if (i < questionArr.length) {
+      if (answer === questionArr[i].correctAns) {
+         quizBlockEl.setAttribute("class", "hidden");
+         answerRespondEl.removeAttribute("class", "hidden");
+         answerRespondEl.innerHTML = "<p>" + "That is correct!" + "</p>";
+         score = score + 10;
+         scoreEl.textContent = score;
+         console.log("correct");
+         } else {
+            quizBlockEl.setAttribute("class", "hidden");
+            answerRespondEl.removeAttribute("class", "hidden");
+            answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "</p>";
+            timeLeft = timeLeft - 10;
+            countdownEl.textContent = timeLeft;
+            console.log('incorect');
+         };
+         setTimeout(function () {
+            answerRespondEl.setAttribute("class", "hidden");
+            i++;
+            if (i <= questionArr.length) {
+            quizLaunch()
+            }
+            quizBlockEl.removeAttribute("class", "hidden");
+         }, 1000)
+      } else {
+      quizEnd();
+   }
 };
 var quizLaunch = function () {
    // display questions and choose answer
@@ -151,37 +157,23 @@ var quizLaunch = function () {
 quizLaunch();
 
 //  !!!! GAME END IF QUESTIONS LENGTH === 0
-var quizEnd = function() {
-
-   answerRespondEl.innerHTML = "<p>" + "Congratulations, you finished the quiz!" + "<br>" + "Enter your initials in the box to save your score!" + "</p>";
+var quizEnd = function () {
    answerRespondEl.removeAttribute("class", "hidden");
-   quizBlockEl.setAttribute('class', 'hidden');   
+   answerRespondEl.innerHTML = "<p>" + "Congratulations, you finished the quiz!" + "<br>" + "Enter your initials in the box to save your score!" + "</p>";
+   quizBlockEl.setAttribute('class', 'hidden');
    scoreEl.setAttribute('class', 'hidden');
    saveScoreEl.removeAttribute('class', 'hidden');
    localStorage.setItem('score', score);
+   
 
    if (score >= highScore) {
       highScore = score;
       highScoreEl.textContent = score;
-   };   
+   };
+   
 };
-   
-   
-   
 
-
-
-// };
-// quizEnd();
 // ENTER INITIALS AT END OF GAME -- localStorage
-
-
-
-// var saveInitial = function () {
-   // localStorage.setItem("initials", JSON.stringify(initials));
-// };
-// saveInitial();
-
 var saveHighScore = function () {
    localStorage.setItem("high-score", JSON.stringify(highScore))
 };

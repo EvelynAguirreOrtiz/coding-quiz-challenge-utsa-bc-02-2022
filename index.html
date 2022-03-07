@@ -1,48 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timed Coding Quiz</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Timed Coding Quiz</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
-  <div>
-    <header>
-      <h1>CODING QUIZ</h1>
-      <h2>Challenge yourself with this short coding quiz</h2>
-      <h3>Press START to begin</h3>
-    </header>
-  </div>
+<div>
+  <header>
+    <h1>CODING QUIZ</h1>
+    <h2>Challenge yourself with this short coding quiz</h2>
+    <h3>Press START to begin</h3>
+  </header>
+</div>
 
-  <!-- QUIZ SECTION -->
-  <section class="quiz-area">
-    <!--  start button -->
-    <div class="start-btn">
-      <button type="button" id="start-game-btn" class="start-game-btn">Start</button> 
+<!-- QUIZ SECTION -->
+<section class="quiz-area">
+  <!--  start button -->
+  <div class="start-btn">
+    <button type="button" id="start-game-btn" class="start-game-btn">Start</button>
+  </div>
+  <!-- question area -->
+  <section class="hidden" id="quiz-block">
+    <!-- question -->
+    <h2 id="questions"></h2>
+    <!-- answers -->
+    <div class="answers">
+      <button type="button" class="answer-display-btn" id="ansA" onclick="clickedA()"></button>
+      <button type="button" class="answer-display-btn" id="ansB" onclick="clickedB()"></button>
+      <button type="button" class="answer-display-btn" id="ansC" onclick="clickedC()"></button>
+      <button type="button" class="answer-display-btn" id="ansD" onclick="clickedD()"></button>
     </div>
-    <!-- question area -->
-    <section  class= "hidden" id="quiz-block">
-      <!-- question -->
-      <h2 id="questions"></h2>
-      <!-- answers -->
-      <div class="answers">
-        <button type="button" class="answer-display-btn" id="ansA" onclick="clickedA()"></button>
-        <button type="button" class="answer-display-btn" id="ansB" onclick="clickedB()"></button>
-        <button type="button" class="answer-display-btn" id="ansC" onclick="clickedC()"></button>
-        <button type="button" class="answer-display-btn" id="ansD" onclick="clickedD()"></button>
-      </div>
 
     <!-- SUBMIT ANSWER -->
-      <button type="button" id="enter-submit-btn" class="enter-submit-btn" onclick="nextQuestion()">Enter</button>
-    </section>
+    <button type="button" id="enter-submit-btn" class="enter-submit-btn" onclick="nextQuestion()">Submit Answer</button>
+  </section>
 
-    <!-- CORECT/INCORRECT notification-->
-    <div id="answer-respond" class="response hidden">
-      <p class="response"></p>
-    </div>
-       
+  <!-- CORECT/INCORRECT notification-->
+  <div id="answer-respond" class="response hidden">
+    <p class="response"></p>
+  </div>
+
   <!-- SCORING AND TIMER SECTION -->
   <section class="scoreboard">
     <div class="your-score">
@@ -56,24 +57,23 @@
     </div>
   </section>
 
-<!-- HIGH SCORE NOTIFICATION -->
+  <!-- HIGH SCORE NOTIFICATION -->
   <section class="hidden">
     <div class="high-score">
       <h1>HIGH SCORE</h1>
       <h2 id="high-score"></h2>
     </div>
-
-    <!-- ADD HIDDEN TO HIDE -->
-  <!-- !!REFACTOR -->
+<!-- save scare -->
     <div id="save-score" class="hidden">
       <h3 class="initials">Enter your initials here to save your score</h3>
       <input class="text" name="initials" maxlength="3">
       <button type="submit" id="enter-initials" class="initials">Enter</button>
-    </div> 
+    </div>
   </section>
 
   <script src="./assets/js/script.js"></script>
 
-</body>
-<footef></footef>
+  </body>
+  <footer></footer>
+
 </html>
