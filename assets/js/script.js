@@ -98,6 +98,17 @@ function countdownTimer() {
    }, 1000);
 };
 
+var i = 0;
+var quizLaunch = function () {
+   // display questions and choose answer
+   questionEl.innerHTML = "<h2>" + questionArr[i].question + "</h2>";
+   answerAEl.innerHTML = "<label>" + questionArr[i].answerA + "</label>";
+   answerBEl.innerHTML = "<label>" + questionArr[i].answerB + "</label>";
+   answerCEl.innerHTML = "<label>" + questionArr[i].answerC + "</label>";
+   answerDEl.innerHTML = "<label>" + questionArr[i].answerD + "</label>";
+};
+quizLaunch();
+
 var answer = ""
 var clickedA = function () {
    answer = "A";
@@ -116,7 +127,7 @@ var clickedD = function () {
    console.log('D');
 };
 
-var i = 0
+// var i = 0
 var nextQuestion = function () {
    if (i < questionArr.length) {
       if (answer === questionArr[i].correctAns) {
@@ -126,51 +137,45 @@ var nextQuestion = function () {
          score = score + 10;
          scoreEl.textContent = score;
          console.log("correct");
-         } else {
-            quizBlockEl.setAttribute("class", "hidden");
-            answerRespondEl.removeAttribute("class", "hidden");
-            answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "</p>";
-            timeLeft = timeLeft - 10;
-            countdownEl.textContent = timeLeft;
-            console.log('incorect');
-         };
-         setTimeout(function () {
-            answerRespondEl.setAttribute("class", "hidden");
-            i++;
-            if (i <= questionArr.length) {
-            quizLaunch()
-            }
-            quizBlockEl.removeAttribute("class", "hidden");
-         }, 1000)
       } else {
+         quizBlockEl.setAttribute("class", "hidden");
+         answerRespondEl.removeAttribute("class", "hidden");
+         answerRespondEl.innerHTML = "<p>" + "That is incorrect" + "</p>";
+         timeLeft = timeLeft - 10;
+         countdownEl.textContent = timeLeft;
+         console.log('incorect');
+      };
+      setTimeout(function () {
+         answerRespondEl.setAttribute("class", "hidden");
+         i++;
+         if (i <= questionArr.length) {
+            quizLaunch()
+         }
+         quizBlockEl.removeAttribute("class", "hidden");
+      }, 1000)
+   } else {
       quizEnd();
    }
 };
-var quizLaunch = function () {
-   // display questions and choose answer
-   questionEl.innerHTML = "<h2>" + questionArr[i].question + "</h2>";
-   answerAEl.innerHTML = "<label>" + questionArr[i].answerA + "</label>";
-   answerBEl.innerHTML = "<label>" + questionArr[i].answerB + "</label>";
-   answerCEl.innerHTML = "<label>" + questionArr[i].answerC + "</label>";
-   answerDEl.innerHTML = "<label>" + questionArr[i].answerD + "</label>";
-};
-quizLaunch();
 
 //  !!!! GAME END IF QUESTIONS LENGTH === 0
 var quizEnd = function () {
-   answerRespondEl.removeAttribute("class", "hidden");
-   answerRespondEl.innerHTML = "<p>" + "Congratulations, you finished the quiz!" + "<br>" + "Enter your initials in the box to save your score!" + "</p>";
+   if (timeLeft > 0) {
+      answerRespondEl.innerHTML = "<p>" + "Congratulations, you finished the quiz!" + "<br>" + "Enter your initials in the box to save your score!" + "</p>";
+      answerRespondEl.removeAttribute("class", "hidden");
+   };
+
    quizBlockEl.setAttribute('class', 'hidden');
    scoreEl.setAttribute('class', 'hidden');
    saveScoreEl.removeAttribute('class', 'hidden');
    localStorage.setItem('score', score);
-   
+
 
    if (score >= highScore) {
       highScore = score;
       highScoreEl.textContent = score;
    };
-   
+
 };
 
 // ENTER INITIALS AT END OF GAME -- localStorage

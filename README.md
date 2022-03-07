@@ -21,5 +21,6 @@ At the end of the game, the user should be able to save their high score and ini
 
 ### Website
 
+https://evelynaguirreortiz.github.io/coding-quiz-challenge-utsa-bc-02-2022/
 
 ![](/assets/images/coding-quiz-screenshot.png)
